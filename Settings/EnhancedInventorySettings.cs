@@ -6,12 +6,12 @@ namespace EnhancedEVA.Settings
     {
         #region Housekeeping
 
-        public override string Section => "EnhancedEVA";
-        public override string DisplaySection => "Enhanced EVA";
-        public override string Title => "EVA inventory";
+        public override string Title => "EVA Inventory";
         public override int SectionOrder => 0;
+        public override string Section => SharedSettings.Section;
+        public override string DisplaySection => SharedSettings.DisplaySection;
         public override GameParameters.GameMode GameMode => GameParameters.GameMode.ANY;
-        public override bool HasPresets => false;
+        public override bool HasPresets => SharedSettings.HasPresets;
 
         #endregion
 

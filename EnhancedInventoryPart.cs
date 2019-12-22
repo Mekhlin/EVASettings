@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using EnhancedEVA.Settings;
-using UnityEngine;
 
 namespace EnhancedEVA
 {
@@ -12,7 +11,7 @@ namespace EnhancedEVA
             try
             {
                 var settings = HighLogic.CurrentGame.Parameters.CustomParams<EnhancedInventorySettings>();
-                if (!(settings is object)) return;
+                if (settings is null) return;
 
                 isEnabled = InventoryEnabled(settings);
                 InventorySlots = isEnabled ? settings.InventorySlots : 0;
@@ -33,7 +32,6 @@ namespace EnhancedEVA
             }
             catch
             {
-                Debug.LogError($"[{nameof(EnhancedEVA)}] Failed to check if inventory is available");
                 return false;
             }
         }

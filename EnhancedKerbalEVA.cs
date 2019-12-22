@@ -8,43 +8,55 @@ namespace EnhancedEVA
 {
     public class EnhancedKerbalEVA : PartModule
     {
-        private EnhancedEVAActionSettings _settings;
-
         [KSPField(guiActive = false, guiActiveEditor = false, guiName = "Kerbal")]
         public string KerbalTraitMenuLabel;
         
         [KSPField(guiActive = false, guiActiveEditor = false, guiName = "Experience")]
         public string KerbalExperienceMenuLabel;
 
-        [KSPEvent(guiActive = false, guiActiveEditor = false, guiName = "Toggle info")]
-        public void ToggleInfo()
-        {
-            if (!(_settings is object)) return;
-            if (KerbalTraitField is object)
-                KerbalTraitField.guiActive = _settings.ShowTraitLabel && KerbalTraitField.guiActive == false;
-            if (KerbalExperienceField is object)
-                KerbalExperienceField.guiActive = _settings.ShowExperienceLabel && KerbalExperienceField.guiActive == false;
-        }
-
         public BaseField KerbalTraitField { get; set; }
         public BaseField KerbalExperienceField { get; set; }
-        public BaseEvent TogleInfoEvent { get; set; }
 
         public void Start()
         {
-            _settings = HighLogic.CurrentGame.Parameters.CustomParams<EnhancedEVAActionSettings>();
-            if (!(_settings is object)) return;
             KerbalTraitField = Fields[nameof(KerbalTraitMenuLabel)];
             KerbalExperienceField = Fields[nameof(KerbalExperienceMenuLabel)];
-            TogleInfoEvent = Events[nameof(ToggleInfo)];
+            ApplyActionWindowSettings();
+            ApplyScienceSettings();
+        }
 
-            KerbalTraitField.guiActive = _settings.ShowTraitLabel;
-            KerbalExperienceField.guiActive = _settings.ShowExperienceLabel;
-            TogleInfoEvent.guiActive = _settings.ShowToggleButton;
-
+        private void ApplyActionWindowSettings()
+        {
+            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EnhancedEVAActionSettings>();
+            if (!(settings is object)) return;
             if (!(vessel.GetVesselCrew().FirstOrDefault() is ProtoCrewMember kerbal)) return;
-            KerbalTraitMenuLabel = BuildInfo(kerbal);
+
+            if (settings.ShowTraitLabel && KerbalTraitField is object)
+            {
+                KerbalTraitMenuLabel = BuildInfo(kerbal);
+
+                KerbalTraitField.guiActive = true;
+                var sb = new StringBuilder();
+                if (kerbal.isBadass)
+                    sb.Append("Badass ");
+                if (kerbal.veteran)
+                    sb.Append($"{(kerbal.isBadass ? 'v' : 'V')}eteran ");
+
+                sb.Append(kerbal.isBadass || kerbal.veteran ? kerbal.trait.ToLower() : kerbal.trait);
+                KerbalTraitMenuLabel = sb.ToString();
+            }
+
+            if (settings.ShowExperienceLabel == false || KerbalExperienceField is null) return;
+            KerbalExperienceField.guiActive = true;
             KerbalExperienceMenuLabel = kerbal.experienceLevel.ToString();
+        }
+
+        private void ApplyScienceSettings()
+        {
+            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EnhancedEVAScienceSettings>();
+            if (settings.RemoveScience == false) return;
+            part.FindModulesImplementing<ModuleScienceExperiment>().ForEach(e => part.RemoveModule(e));
+            part.FindModulesImplementing<ModuleScienceContainer>().ForEach(e => part.RemoveModule(e));
         }
 
         private string BuildInfo(ProtoCrewMember kerbal)

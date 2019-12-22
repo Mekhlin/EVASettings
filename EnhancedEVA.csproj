@@ -26,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>GameData\EnhancedEVA\Plugins\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -57,7 +57,9 @@
     <Compile Include="EnhancedKerbalEVA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\EnhancedEVAActionSettings.cs" />
+    <Compile Include="Settings\EnhancedEVAScienceSettings.cs" />
     <Compile Include="Settings\EnhancedInventorySettings.cs" />
+    <Compile Include="Settings\SharedSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

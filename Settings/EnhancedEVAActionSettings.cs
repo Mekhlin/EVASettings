@@ -4,12 +4,12 @@
     {
         #region Housekeeping
 
-        public override string Section => "EnhancedEVA";
-        public override string DisplaySection => "Enhanced EVA";
         public override string Title => "Action Window";
         public override int SectionOrder => 1;
+        public override string Section => SharedSettings.Section;
+        public override string DisplaySection => SharedSettings.DisplaySection;
         public override GameParameters.GameMode GameMode => GameParameters.GameMode.ANY;
-        public override bool HasPresets => false;
+        public override bool HasPresets => SharedSettings.HasPresets;
 
         #endregion
 
@@ -20,9 +20,6 @@
         
         [GameParameters.CustomParameterUI("Show experience", gameMode = GameParameters.GameMode.ANY)]
         public bool ShowExperienceLabel = false;
-        
-        [GameParameters.CustomParameterUI("Show toggle button", gameMode = GameParameters.GameMode.ANY)]
-        public bool ShowToggleButton = false;
 
         #endregion
     }
