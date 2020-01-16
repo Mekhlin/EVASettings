@@ -56,7 +56,6 @@
     <Compile Include="EnhancedInventoryPart.cs" />
     <Compile Include="EnhancedKerbalEVA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\EnhancedEVAActionSettings.cs" />
     <Compile Include="Settings\EnhancedEVAScienceSettings.cs" />
     <Compile Include="Settings\EnhancedInventorySettings.cs" />
     <Compile Include="Settings\SharedSettings.cs" />
