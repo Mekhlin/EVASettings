@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using EnhancedEVA.Settings;
 
-// ReSharper disable UnusedMember.Global
-// ReSharper disable InconsistentNaming
+// ReSharper disable once InconsistentNaming
 namespace EnhancedEVA
 {
+    // ReSharper disable once UnusedMember.Global
     public class EnhancedKerbalEVA : PartModule
     {
+        // ReSharper disable once UnusedMember.Global
         public void Start()
         {
             ApplyScienceSettings();
@@ -22,7 +23,7 @@ namespace EnhancedEVA
                 return;
             }
 
-            if (!settings.RestrictSurfaceSample) return;
+            if (settings.RestrictSurfaceSample == false) return;
             if (!(vessel.GetVesselCrew().FirstOrDefault() is ProtoCrewMember kerbal)) return;
             if (kerbal.trait == KerbalRoster.scientistTrait) return;
 
