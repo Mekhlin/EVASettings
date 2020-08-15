@@ -1,2 +1,5 @@
 # Enhanced EVA
-Enhances the EVA experience of Kerbal Space Program
+
+* Ability to change the number of inventory slots available on EVA.
+* Ability to disable the EVA inventory.
+* Ability to remove EVA science experiments.

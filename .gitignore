@@ -23,6 +23,9 @@ GameData/EnhancedEVA/Plugins/*.dll
 # Visual Studio 2015 cache/options directory
 .vs/
 
+# JetBrains IDE
+.idea/
+
 *.ilk
 *.meta
 *.obj
