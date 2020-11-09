@@ -10,14 +10,14 @@ namespace EnhancedEVA.Settings
         public override int SectionOrder => 2;
         public override string Section => SharedSettings.Section;
         public override string DisplaySection => SharedSettings.DisplaySection;
-        public override GameParameters.GameMode GameMode => GameParameters.GameMode.ANY;
+        public override GameParameters.GameMode GameMode => SharedSettings.GameMode;
         public override bool HasPresets => SharedSettings.HasPresets;
 
         #endregion
 
         #region Settings
 
-        [GameParameters.CustomParameterUI("Remove all science experiments", gameMode = GameParameters.GameMode.ANY)]
+        [GameParameters.CustomParameterUI("Remove all EVA science experiments", gameMode = GameParameters.GameMode.ANY)]
         public bool RemoveScience = false;
         
         [GameParameters.CustomParameterUI("Only scientists can take surface samples", gameMode = GameParameters.GameMode.ANY)]

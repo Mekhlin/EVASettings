@@ -10,7 +10,7 @@ namespace EnhancedEVA.Settings
         public override int SectionOrder => 0;
         public override string Section => SharedSettings.Section;
         public override string DisplaySection => SharedSettings.DisplaySection;
-        public override GameParameters.GameMode GameMode => GameParameters.GameMode.ANY;
+        public override GameParameters.GameMode GameMode => SharedSettings.GameMode;
         public override bool HasPresets => SharedSettings.HasPresets;
 
         #endregion
