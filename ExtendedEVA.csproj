@@ -7,8 +7,8 @@
     <ProjectGuid>{35170AB4-1BC0-4493-AF35-F4609B9CF95A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EnhancedEVA</RootNamespace>
-    <AssemblyName>EnhancedEVA</AssemblyName>
+    <RootNamespace>ExtendedEVA</RootNamespace>
+    <AssemblyName>ExtendedEVA</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>GameData\EnhancedEVA\Plugins\</OutputPath>
+    <OutputPath>GameData\ExtendedEVA\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>GameData\EnhancedEVA\Plugins\</OutputPath>
+    <OutputPath>GameData\ExtendedEVA\Plugins\</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,11 +48,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnhancedInventoryPart.cs" />
-    <Compile Include="EnhancedKerbalEVA.cs" />
+    <Compile Include="ExtendedInventoryPart.cs" />
+    <Compile Include="ExtendedKerbalEVA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\EnhancedEVAScienceSettings.cs" />
-    <Compile Include="Settings\EnhancedInventorySettings.cs" />
+    <Compile Include="Settings\ExtendedEVAScienceSettings.cs" />
+    <Compile Include="Settings\ExtendedInventorySettings.cs" />
     <Compile Include="Settings\SharedSettings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +63,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y "$(TargetDir)$(TargetName).pdb" "C:\KSPDev\GameData\EnhancedEVA\Plugins\"
-xcopy /Y "$(TargetDir)$(TargetName).dll" "C:\KSPDev\GameData\EnhancedEVA\Plugins\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

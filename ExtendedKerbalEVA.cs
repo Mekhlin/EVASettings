@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using EnhancedEVA.Settings;
+using ExtendedEVA.Settings;
 
 // ReSharper disable once InconsistentNaming
-namespace EnhancedEVA
+namespace ExtendedEVA
 {
     // ReSharper disable once UnusedMember.Global
-    public class EnhancedKerbalEVA : PartModule
+    public class ExtendedKerbalEVA : PartModule
     {
         // ReSharper disable once UnusedMember.Global
         public void Start()
@@ -15,7 +15,7 @@ namespace EnhancedEVA
 
         private void ApplyScienceSettings()
         {
-            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EnhancedEVAScienceSettings>();
+            var settings = HighLogic.CurrentGame.Parameters.CustomParams<ExtendedEVAScienceSettings>();
             if (settings.RemoveScience)
             {
                 part.FindModulesImplementing<ModuleScienceExperiment>().ForEach(e => part.RemoveModule(e));

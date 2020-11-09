@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-namespace EnhancedEVA.Settings
+namespace ExtendedEVA.Settings
 {
-    public class EnhancedInventorySettings : GameParameters.CustomParameterNode
+    public class ExtendedInventorySettings : GameParameters.CustomParameterNode
     {
         #region Housekeeping
 
