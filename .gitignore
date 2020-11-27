@@ -18,7 +18,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Rr]elease/
-GameData/ExtendedEVA/Plugins/*.dll
+GameData/EVASettings/Plugins/*.dll
 
 # Visual Studio 2015 cache/options directory
 .vs/
