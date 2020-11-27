@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using ExtendedEVA.Settings;
+using EVASettings.Settings;
 
-namespace ExtendedEVA
+namespace EVASettings
 {
     // ReSharper disable once UnusedMember.Global
     public class ExtendedInventoryPart : ModuleInventoryPart
@@ -10,7 +10,7 @@ namespace ExtendedEVA
         {
             try
             {
-                var settings = HighLogic.CurrentGame.Parameters.CustomParams<ExtendedInventorySettings>();
+                var settings = HighLogic.CurrentGame.Parameters.CustomParams<EVAInventorySettings>();
                 if (settings is null) return;
 
                 isEnabled = InventoryEnabled(settings);
@@ -22,7 +22,7 @@ namespace ExtendedEVA
             }
         }
 
-        private bool InventoryEnabled(ExtendedInventorySettings settings)
+        private bool InventoryEnabled(EVAInventorySettings settings)
         {
             try
             {

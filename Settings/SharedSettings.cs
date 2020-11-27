@@ -1,4 +1,4 @@
-﻿namespace ExtendedEVA.Settings
+﻿namespace EVASettings.Settings
 {
     public static class SharedSettings
     {
