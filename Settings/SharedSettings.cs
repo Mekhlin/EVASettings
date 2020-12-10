@@ -1,6 +1,6 @@
 ﻿namespace EVASettings.Settings
 {
-    public static class SharedSettings
+    internal static class SharedSettings
     {
         public const string Section = "EvaSettings";
         public const string DisplaySection = "EVA Settings";

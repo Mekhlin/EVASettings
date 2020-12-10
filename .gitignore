@@ -18,13 +18,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Rr]elease/
-GameData/EVASettings/Plugins/*.dll
 
 # Visual Studio 2015 cache/options directory
 .vs/
-
-# JetBrains IDE
-.idea/
 
 *.ilk
 *.meta

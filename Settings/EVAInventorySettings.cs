@@ -17,10 +17,10 @@ namespace EVASettings.Settings
 
         #region Settings
 
-        [GameParameters.CustomIntParameterUI("Inventory slots", maxValue = 3, minValue = 1, stepSize = 1, toolTip = "Number of inventory slots available on EVA", autoPersistance = true)]
+        [GameParameters.CustomIntParameterUI("Inventory slots", minValue = 1, maxValue = 2, stepSize = 1, toolTip = "Number of inventory slots available on EVA", autoPersistance = true)]
         public int InventorySlots = 1;
 
-        [GameParameters.CustomParameterUI("Disable EVA inventory on pilots", toolTip = "Disable pilot inventory on EVA. Only scientists and engineers will have an inventory", autoPersistance = true, gameMode = GameParameters.GameMode.ANY)]
+        [GameParameters.CustomParameterUI("Disable EVA inventory on pilots", autoPersistance = true, gameMode = GameParameters.GameMode.ANY)]
         public bool DisablePilotInventory = false;
 
         [GameParameters.CustomParameterUI("Disable EVA inventory", autoPersistance = true, gameMode = GameParameters.GameMode.ANY)]
