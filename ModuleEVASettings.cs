@@ -1,16 +1,27 @@
 ﻿using System.Linq;
-using EVASettings.Settings;
+using EVASettings.GameSettings;
 
 // ReSharper disable once InconsistentNaming
 namespace EVASettings
 {
     // ReSharper disable once UnusedMember.Global
-    public class ExtendedKerbalEVA : PartModule
+    public class ModuleEVASettings : PartModule
     {
         // ReSharper disable once UnusedMember.Global
         public void Start()
         {
+            ApplyInventorySettings();
             ApplyScienceSettings();
+        }
+
+        private void ApplyInventorySettings()
+        {
+            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EVAInventorySettings>();
+            var inventoryPart = part.FindModulesImplementing<ModuleInventoryPart>().FirstOrDefault();
+            if (inventoryPart is object)
+            {
+                inventoryPart.InventorySlots = settings.InventorySlots;
+            }
         }
 
         private void ApplyScienceSettings()

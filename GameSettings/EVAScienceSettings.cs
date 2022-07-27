@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
+using EVASettings.Settings;
 
-namespace EVASettings.Settings
+namespace EVASettings.GameSettings
 {
+    // ReSharper disable once InconsistentNaming
     public class EVAScienceSettings : GameParameters.CustomParameterNode
     {
         #region Housekeeping
