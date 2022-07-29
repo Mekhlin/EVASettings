@@ -9,7 +9,7 @@ namespace EVASettings.GameSettings
         #region Housekeeping
 
         public override string Title => "EVA Science";
-        public override int SectionOrder => 2;
+        public override int SectionOrder => 1;
         public override string Section => SharedSettings.Section;
         public override string DisplaySection => SharedSettings.DisplaySection;
         public override GameParameters.GameMode GameMode => SharedSettings.GameMode;

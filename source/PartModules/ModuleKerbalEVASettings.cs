@@ -2,10 +2,10 @@
 using EVASettings.GameSettings;
 
 // ReSharper disable once InconsistentNaming
-namespace EVASettings
+namespace EVASettings.PartModules
 {
     // ReSharper disable once UnusedMember.Global
-    public class ModuleEVASettings : PartModule
+    public class ModuleKerbalEVASettings : PartModule
     {
         // ReSharper disable once UnusedMember.Global
         public void Start()
@@ -16,25 +16,25 @@ namespace EVASettings
 
         private void ApplyInventorySettings()
         {
-            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EVAInventorySettings>();
+            var inventorySettings = HighLogic.CurrentGame.Parameters.CustomParams<EVAInventorySettings>();
             var inventoryPart = part.FindModulesImplementing<ModuleInventoryPart>().FirstOrDefault();
             if (inventoryPart is object)
             {
-                inventoryPart.InventorySlots = settings.InventorySlots;
+                inventoryPart.InventorySlots = inventorySettings.InventorySlots;
             }
         }
 
         private void ApplyScienceSettings()
         {
-            var settings = HighLogic.CurrentGame.Parameters.CustomParams<EVAScienceSettings>();
-            if (settings.RemoveScience)
+            var scienceSettings = HighLogic.CurrentGame.Parameters.CustomParams<EVAScienceSettings>();
+            if (scienceSettings.RemoveScience)
             {
                 part.FindModulesImplementing<ModuleScienceExperiment>().ForEach(e => part.RemoveModule(e));
                 part.FindModulesImplementing<ModuleScienceContainer>().ForEach(e => part.RemoveModule(e));
                 return;
             }
 
-            if (settings.RestrictSurfaceSample == false) return;
+            if (scienceSettings.RestrictSurfaceSample == false) return;
             if (!(vessel.GetVesselCrew().FirstOrDefault() is ProtoCrewMember kerbal)) return;
             if (kerbal.trait == KerbalRoster.scientistTrait) return;
 
