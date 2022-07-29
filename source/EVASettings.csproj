@@ -53,18 +53,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModuleEVASettings.cs" />
+    <Compile Include="GameSettings\EVAMiscSettings.cs" />
+    <Compile Include="PartModules\ModuleKerbalEVASettings.cs" />
+    <Compile Include="PartModules\ModuleVesselEVASettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameSettings\EVAScienceSettings.cs" />
     <Compile Include="GameSettings\EVAInventorySettings.cs" />
     <Compile Include="GameSettings\SharedSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
